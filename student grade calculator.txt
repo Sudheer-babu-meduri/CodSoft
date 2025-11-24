@@ -1,0 +1,52 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+class GradeCaluclator 
+{
+	public static void main(String[] args) 
+	{
+	   try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in));)
+	   {
+		   System.out.println("Enter The Total Number Of Subjects : ");
+		   int totalSubjects = Integer.parseInt(br.readLine());
+		   
+		   int totalMarks = 0;
+		   
+		   for(int i = 0; i< totalSubjects;i++)
+		   {
+			   System.out.println("Enter The Subject"+(i+1)+" Marks Out Of 100 : ");
+			   int marks = Integer.parseInt(br.readLine());
+			   totalMarks += marks;
+		   }
+		   
+		   System.out.println("Total Marks Obtained : "+totalMarks);
+		   
+		   String format = String.format("%.2f",(double) totalMarks/totalSubjects);
+		   
+		   double averageMarks = Double.parseDouble(format);
+		   System.out.println("AverageMarks : "+averageMarks+"%");
+		   System.out.println();
+		   
+		   if( averageMarks >= 90)
+			   System.out.println("Grade : A+");
+		   else if (averageMarks >= 80)
+			   System.out.println("Grade : A");
+		   else if (averageMarks >= 70)
+			   System.out.println("Grade : B");
+		   else if (averageMarks >= 60)
+			   System.out.println("Grade : C");
+		   else if (averageMarks >= 50)
+			   System.out.println("Grade : D");
+		   else if (averageMarks >= 40)
+			   System.out.println("Grade : E");
+		   else
+			   System.out.println("Fail");;
+		   
+		   
+		}
+	   catch (IOException ioe)
+	   {
+		   ioe.printStackTrace();
+	   }
+	}
+}
